@@ -14,7 +14,7 @@
 <body>
 <style>
     #marker {
-        background-image: url('https://docs.mapbox.com/mapbox-gl-js/assets/washington-monument.jpg');
+        background-image: url('https://drive.google.com/file/d/1di1m2PFnMy1u_O_6-FZqj-wEq3jPzAuP/view?usp=sharing');
         background-size: cover;
         width: 50px;
         height: 50px;
@@ -32,11 +32,11 @@
 <script>
 	mapboxgl.accessToken = 'pk.eyJ1IjoibWFwZXhwZXJ0IiwiYSI6ImNrZWltZXBmYzFoMHYyc3M1czl6cDEwYzMifQ.5YHvRcXoN_f_BYQBTmvH4w';
 	//-70.64, -33.44
-    var monument = [-70.64, -33.44];
+    var center_map = [-70.64, -33.44];
     var map = new mapboxgl.Map({
         container: 'map',
-        style: 'mapbox://styles/mapbox/light-v10',
-        center: monument,
+        style: 'mapbox://styles/mapexpert/ckeilc7ad1v7h19tmzu80uss5',
+        center: center_map,
         zoom: 9
     });
 
@@ -51,7 +51,7 @@
 
     // create the marker
     new mapboxgl.Marker(el)
-        .setLngLat(monument)
+        .setLngLat(center_map)
         .setPopup(popup) // sets a popup on this marker
         .addTo(map);
 </script>
