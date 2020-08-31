@@ -41,18 +41,18 @@
     });
 
     // create the popup
-    var popup = new mapboxgl.Popup({ offset: 25 }).setText(
-        'Welcome to the Chile Graffiti Project.'
-    );
+    // var popup = new mapboxgl.Popup({ offset: 25 }).setText(
+    //     'Welcome to the Chile Graffiti Project.'
+    // );
 
-    // create DOM element for the marker
-    var el = document.createElement('div');
-    el.id = 'marker';
+    // // create DOM element for the marker
+    // var el = document.createElement('div');
+    // el.id = 'marker';
 
     // create the marker
     new mapboxgl.Marker(el)
         .setLngLat(center_map)
-        .setPopup(popup) // sets a popup on this marker
+        // .setPopup(popup) // sets a popup on this marker
         .addTo(map);
 </script>
 
