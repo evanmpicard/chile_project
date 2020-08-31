@@ -35,7 +35,7 @@
     var center_map = [-70.64, -33.44];
     var map = new mapboxgl.Map({
         container: 'map',
-        style: 'mapbox://styles/mapexpert/ckeiujnc21yx219r2fme4uju9',
+        style: 'mapbox://styles/mapexpert/ckeivtxov56ye19p53lpn6511',
 
         center: center_map,
         zoom: 15
@@ -60,7 +60,7 @@
 
 	map.on('click', function(e) {
 	  var features = map.queryRenderedFeatures(e.point, {
-	    layers: ['image-list-pp'] // replace this with the name of the layer
+	    layers: ['image-list'] // replace this with the name of the layer
 	  });
 
 	  if (!features.length) {
