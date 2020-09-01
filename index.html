@@ -11,6 +11,16 @@
 	#map { position: absolute; top: 0; bottom: 0; width: 100%; }
 </style>
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script> 
+<script src="/js/my.js"></script> 
+Then within the <script></script> section of your html
+$( document ).ready(function() {
+console.log( "ready!" );
+});
+
+
+
+
 
 </head>
 <body>
@@ -18,6 +28,10 @@
 <div id="map"></div>
 
 <script>
+	$( document ).ready(function() {
+		console.log( "ready!" );
+	});
+
 	mapboxgl.accessToken = 'pk.eyJ1IjoibWFwZXhwZXJ0IiwiYSI6ImNrZWltZXBmYzFoMHYyc3M1czl6cDEwYzMifQ.5YHvRcXoN_f_BYQBTmvH4w';
 	//-70.64, -33.44
     var center_map = [-70.64, -33.44];
@@ -61,7 +75,7 @@
 	    .setLngLat(feature.geometry.coordinates)
 	    // .setHTML('<img src="' + feature.properties.filename + '"style="width:300px;height:300px;">')
 		// .setHTML('<img src="http://www.dropbox.com/s/faemjw3vlhv1q9a/img9883.jpg style=width:300px;height:300px;">')
-		.setHTML('<img src onerror="fetch('https://www.dropbox.com/s/faemjw3vlhv1q9a/img9883.jpg',{headers: {hello:'World!'}}).then(r=>r.blob()).then(d=> this.src=window.URL.createObjectURL(d));" />')
+		.setHTML('<img src onerror="fetch(\'https://www.dropbox.com/s/faemjw3vlhv1q9a/img9883.jpg',{headers: {hello:'World!'}}).then(r=>r.blob()).then(d=> this.src=window.URL.createObjectURL(d));" />')
 
 
 // <img src="https://www.w3schools.com/images/w3schools_green.jpg" alt="W3Schools.com">
