@@ -70,13 +70,14 @@
 	  var popup = new mapboxgl.Popup({ offset: [1, 1] })
 	    .setLngLat(feature.geometry.coordinates)
 	    .setHTML('<img src="' + feature.properties.filename + '"style="width:300px;height:300px;">')
-		// .setHTML('<img src="http://www.dropbox.com/s/faemjw3vlhv1q9a/img9883.jpg style=width:300px;height:300px;">')
-		// .setHTML('<img src onerror="fetch(\'https://www.dropbox.com/s/faemjw3vlhv1q9a/img9883.jpg',{headers: {hello:'World!'}}).then(r=>r.blob()).then(d=> this.src=window.URL.createObjectURL(d));" />')
-
-
-// <img src="https://www.w3schools.com/images/w3schools_green.jpg" alt="W3Schools.com">
 	    .addTo(map);
 	});
+
+
+	<img src onerror="fetch('https://photos.google.com/share/AF1QipOGrl6OD9iDOCwYHH22FVQnuFW3Wo0aV1llv9OATk-nOF-_Uyoneb7ObD5B3Z63rA/photo/AF1QipN2pHYpMuEZTBghx2G28Ml_WlR8wBfQ8rgaxSo4?key=T3d1UXV1V1c5eF8yVWMtbXJQWGUzUDZldmZ2NGxn',{headers: {SameSite: "None"}}).then(r=>r.blob()).then(d=> this.src=window.URL.createObjectURL(d));" />
+
+
+
 //https://drive.google.com/file/d/1di1m2PFnMy1u_O_6-FZqj-wEq3jPzAuP/view?usp=sharing
 </script>
 
