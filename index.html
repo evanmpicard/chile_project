@@ -69,17 +69,17 @@
 
 	  var feature = features[0];
 
-	  // var popup = new mapboxgl.Popup({ offset: [1, 1] })
-	  //   .setLngLat(feature.geometry.coordinates)
-	  //   .setHTML('<img src="' + feature.properties.filename + '"style="width:300px;height:300px;">')
-	  //   .addTo(map);
+	  var popup = new mapboxgl.Popup({ offset: [1, 1] })
+	    .setLngLat(feature.geometry.coordinates)
+	    .setHTML('<img src="' + feature.properties.filename + '"style="width:300px;height:300px;">')
+	    .addTo(map);
 	});
 
 
 
 
-</script>
-	<img src onerror="fetch('https://previews.dropbox.com/p/thumb/AA7WiG91iA09WTiNu092T3JRGUi8M4wNcDOCFIUyewDarIX52n_nHCZ5VzSz7zykDwIDWXfMclerLWhyH3YGGhVItKjATiySuCdQXyxBHYPFrqDzv2FfPyDofnl0T1j7nSPo75mysfgAD9jc1jHtXFQ-DJepsO6Rj7OyOqHOstmoXV6w54pqbtD5ZDvqEa13StsZRdqQSt5Knt3Y_40bIrRVesFMLpLip463x1S5Oi1KvTRm5Q9EYM062MeXGY2Vrx_SRDKIimuDIEBRlSula7CsuoKKPbHn2bdyV5Xisk8HjFBNeO5kKtC4bHr6gchNhYBLogcIrcf3N5YUWzcHnz2xv2qKn5Jf0tgogBsQmA6eWHrTvSu_0TArhQkojNBzZFjTjtfF5MTHorqgj3dO12D4zFxB0D49MysjeUcqrc4McgMG08p3aLQd3pes7lalNwY/p.jpeg', {headers: {SameSite: 'None', 'Access-Control-Allow-Headers': '*'}}).then(r=>r.blob()).then(d=> this.src=window.URL.createObjectURL(d));"" />
+<script>
 
+</script>
 </body>
 </html>
