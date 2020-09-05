@@ -48,33 +48,31 @@
 
     // // create DOM element for the marker
     var el = document.createElement('div');
-    
+
     el.id = 'marker';
 
     // create the marker
-    new mapboxgl.Marker(el)
-        .setLngLat(center_map)
-        .setHTML('<img src="' + feature.properties.filename + '"style="width:300px;height:300px;">')
-        .addTo(map);
+ //    new mapboxgl.Marker(el)
+ //        .setLngLat(center_map)
+ //        .setHTML('<img src="' + feature.properties.filename + '"style="width:300px;height:300px;">')
+ //        .addTo(map);
 
 
 
-	map.on('click', function(e) {
-	  var features = map.queryRenderedFeatures(e.point, {
-	    layers: ['image_list'] // replace this with the name of the layer
-	  });
+	// map.on('click', function(e) {
+	//   var features = map.queryRenderedFeatures(e.point, {
+	//     layers: ['image_list'] // replace this with the name of the layer
+	//   });
 
-	  if (!features.length) {
-	    return;
-	  }
 
-	  var feature = features[0];
 
-	  var popup = new mapboxgl.Popup({ offset: [1, 1] })
-	    .setLngLat(feature.geometry.coordinates)
-	    .setHTML('<img src="' + feature.properties.filename + '"style="width:300px;height:300px;">')
-	    .addTo(map);
-	});
+	//   var feature = features[0];
+
+	//   var popup = new mapboxgl.Popup({ offset: [1, 1] })
+	//     .setLngLat(feature.geometry.coordinates)
+	//     .setHTML('<img src="' + feature.properties.filename + '"style="width:300px;height:300px;">')
+	//     .addTo(map);
+	// });
 
 
 
