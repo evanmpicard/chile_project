@@ -59,20 +59,20 @@
 
 
 
-	// map.on('click', function(e) {
-	//   var features = map.queryRenderedFeatures(e.point, {
-	//     layers: ['image_list'] // replace this with the name of the layer
-	//   });
+	map.on('click', function(e) {
+	  var features = map.queryRenderedFeatures(e.point, {
+	    layers: ['image_list'] // replace this with the name of the layer
+	  });
 
 
 
-	//   var feature = features[0];
+	  var feature = features[0];
 
-	//   var popup = new mapboxgl.Popup({ offset: [1, 1] })
-	//     .setLngLat(feature.geometry.coordinates)
-	//     .setHTML('<img src="' + feature.properties.filename + '"style="width:300px;height:300px;">')
-	//     .addTo(map);
-	// });
+	  var popup = new mapboxgl.Popup({ offset: [1, 1] })
+	    .setLngLat(feature.geometry.coordinates)
+	    .setHTML('<img src="' + feature.properties.filename + '"style="width:300px;height:300px;">')
+	    .addTo(map);
+	});
 
 
 
