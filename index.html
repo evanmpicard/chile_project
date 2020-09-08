@@ -12,10 +12,10 @@
 	body { margin: 0; padding: 0; }
 	#map { position: absolute; top: 0; bottom: 0; width: 100%; }
 
-	.container {
+/*	.container {
     height: 300px;
     width: 300px;
-	}
+	}*/
 
 	.container img {
     object-fit: cover;
@@ -50,7 +50,6 @@
     var map = new mapboxgl.Map({
         container: 'map',
         style: 'mapbox://styles/mapexpert/ckep1xndm4qpg19mgmf655crt',
-
         center: center_map,
         zoom: 15
     });
@@ -65,12 +64,6 @@
 
     el.id = 'marker';
 
-    // create the marker
- //    new mapboxgl.Marker(el)
- //        .setLngLat(center_map)
- //        .setHTML('<img src="' + feature.properties.filename + '"style="width:300px;height:300px;">')
- //        .addTo(map);
-
 
 
 	map.on('click', function(e) {
@@ -79,6 +72,9 @@
 	  });
 
 
+map.on('mousemove', 'image-list', e => {
+          map.getCanvas().style.cursor = 'pointer';
+      });
 
 	  var feature = features[0];
 
