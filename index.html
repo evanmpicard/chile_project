@@ -11,6 +11,20 @@
 <style>
 	body { margin: 0; padding: 0; }
 	#map { position: absolute; top: 0; bottom: 0; width: 100%; }
+
+	.container {
+    height: 75px;
+    width: 75px;
+	}
+
+	.container img {
+    object-fit: cover;
+    object-position: top;
+    display: block;
+    height: 100%;
+    width: 100%;
+	}
+	
 </style>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script> 
@@ -70,7 +84,8 @@
 
 	  var popup = new mapboxgl.Popup({ offset: [1, 1] })
 	    .setLngLat(feature.geometry.coordinates)
-	    .setHTML('<img src="' + feature.properties.filename + '"style="width:500px;height:500px;">')
+	    // .setHTML('<img src="' + feature.properties.filename + '"style="width:500px;height:500px;">')
+	    .setHTML(' <div class="container"><img src="' + feature.properties.filename + '></div> ')
 
 
 
