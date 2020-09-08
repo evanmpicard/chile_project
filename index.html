@@ -66,14 +66,18 @@
 
 
 
-	map.on('click', function(e) {
+	map.on('click', function() {
 	  var features = map.queryRenderedFeatures(e.point, {
 	    layers: ['image-list'] // replace this with the name of the layer
 	  });
 
 
-	map.on('mouseover', 'image-list', e => {
+	map.on('mouseover', 'image-list', function() {
           map.getCanvas().style.cursor = 'pointer';
+      });
+
+	map.on('mouseleave', 'image-list', function() {
+		  map.getCanvas().style.cursor = '';
       });
 
 	  var feature = features[0];
@@ -82,7 +86,6 @@
 	    .setLngLat(feature.geometry.coordinates)
 	    // .setHTML('<img src="' + feature.properties.filename + '"style="width:500px;height:500px;">')
 	    .setHTML('<div class="container"><img src="' + feature.properties.filename + '"></div> ')
-
 
 
 	    .addTo(map);
