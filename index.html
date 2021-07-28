@@ -11,7 +11,11 @@
 body { margin: 0; padding: 0; }
 #map { position: absolute; top: 0; bottom: 0; width: 100%; }
 </style>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
 </head>
+
 <body>
 <style>
     #menu {
@@ -57,92 +61,209 @@ body { margin: 0; padding: 0; }
     }
 </style>
 
-<nav id="menu"></nav>
 <div id="map"></div>
+<nav id="menu"></nav>
 
 <script>
-	// TO MAKE THE MAP APPEAR YOU MUST
-	// ADD YOUR ACCESS TOKEN FROM
-	// https://account.mapbox.com
-
-
-
-// https://api.mapbox.com/v4/styles.json?secure&access_token=pk.eyJ1IjoibWFwZXhwZXJ0IiwiYSI6ImNpb2cxMG45MjAxZHN1bG0zbTV2dGZlbXkifQ.-2IUPOZMLhPQuGsf2xj3vA
 
     // mapboxgl.accessToken = 'pk.eyJ1IjoibWFwZXhwZXJ0IiwiYSI6ImNrZWltZXBmYzFoMHYyc3M1czl6cDEwYzMifQ.5YHvRcXoN_f_BYQBTmvH4w';
-    mapboxgl.accessToken = 'pk.eyJ1IjoibWFwZXhwZXJ0IiwiYSI6ImNpb2cxMG45MjAxZHN1bG0zbTV2dGZlbXkifQ.-2IUPOZMLhPQuGsf2xj3vA';
-
-
+    mapboxgl.accessToken = 'pk.eyJ1IjoibWFwZXhwZXJ0IiwiYSI6ImNrcHBvMWlneDA2ZGkycW1vdWk4cmZ1MW0ifQ.EViUYjmsVljQCr2h7ixxRg';
     var map = new mapboxgl.Map({
         container: 'map',
-        // style: 'mapbox://styles/mapexpert/ckep1xndm4qpg19mgmf655crt',
-        style: 'mapbox://styles/mapbox/streets-v11',
+        style: 'mapbox://styles/mapexpert/ckqihs2sq08g517lnsxiobbb6',
+
         zoom: 15,
         center: [-70.64, -33.44]
     });
 
-    // Wait until the map has finished loading.
     map.on('load', function () {
-        // Add a custom vector tileset source. This tileset contains
-        // point features representing museums. Each feature contains
-        // three properties. For example:
-        // {
-        //     alt_name: "Museo Arqueologico",
-        //     name: "Museo Inka",
-        //     tourism: "museum"
-        // }
-        map.addSource('graffiti', {
+
+        // map.addSource('image_list', {
+        //     type: 'vector',
+        //     url: 'mapbox://mapexpert.ckppy7gqr06qg29nxyiv1wlf1-4cyn6'
+        // });
+
+        map.addSource('chapter1', {
             type: 'vector',
-            url: 'mapbox://styles/mapexpert/ckpogccks17vu17phjh3o6svn/draft'
+            url: 'mapbox://mapexpert.ckrgod9lx8cys28qnet1d49t7-9ckrs'
         });
 
+        map.addSource('chapter2', {
+            type: 'vector',
+            url: 'mapbox://mapexpert.ckrgojybv8qad20qnyfre3zh6-606bq'
+        });
+
+        map.addSource('chapter3', {
+            type: 'vector',
+            url: 'mapbox://mapexpert.ckrgoujol31712doa6950wr47-2vzk3'
+        });
+
+
+        map.addSource('chapter4', {
+            type: 'vector',
+            url: 'mapbox://mapexpert.ckrgou9i753f822ny45eemcwl-1hatz'
+        });
+
+        map.addSource('chapter5', {
+            type: 'vector',
+            url: 'mapbox://mapexpert.ckrgovbcg3glu27o36ecwkrc9-07pfp'
+        });
+
+        map.addSource('chapter6', {
+            type: 'vector',
+            url: 'mapbox://mapexpert.ckrgotthz0bw628qptkd9q1zb-7cyme'
+        });
+
+        map.addSource('chapter7', {
+            type: 'vector',
+            url: 'mapbox://mapexpert.ckrgotm2w535b21ny32xmnqk8-771o8'
+        });
+
+        map.addSource('chapter8', {
+            type: 'vector',
+            url: 'mapbox://mapexpert.ckrgotdrg1p6826p76wrvwnlo-8m3ma'
+        });
+
+        // map.addLayer({
+        //     'id': 'image_list',
+        //     'type': 'circle',
+        //     'source': 'image_list',
+        //     'layout': {
+        //         'visibility': 'visible'
+        //     },
+        //     'paint': {
+        //         'circle-radius': 8,
+        //         'circle-color': 'rgba(55,148,179,1)'
+        //     },
+        //     'source-layer': 'image_list'
+        // });
+
+
         map.addLayer({
-            'id': 'graffiti',
+            'id': 'chapter1',
             'type': 'circle',
-            'source': 'graffiti',
+            'source': 'chapter1',
             'layout': {
-                // Make the layer visible by default.
                 'visibility': 'visible'
             },
             'paint': {
                 'circle-radius': 8,
                 'circle-color': 'rgba(55,148,179,1)'
             },
-            'source-layer': 'imagelist'
+            'source-layer': 'chapter1'
         });
 
-        // Add the Mapbox Terrain v2 vector tileset. Read more about
-        // the structure of data in this tileset in the documentation:
-        // https://docs.mapbox.com/vector-tiles/reference/mapbox-terrain-v2/
-        map.addSource('contours', {
-            type: 'vector',
-            url: 'mapbox://mapbox.mapbox-terrain-v2'
-        });
         map.addLayer({
-            'id': 'contours',
-            'type': 'line',
-            'source': 'contours',
-            'source-layer': 'contour',
+            'id': 'chapter2',
+            'type': 'circle',
+            'source': 'chapter2',
             'layout': {
-                // Make the layer visible by default.
-                'visibility': 'visible',
-                'line-join': 'round',
-                'line-cap': 'round'
+                'visibility': 'visible'
             },
             'paint': {
-                'line-color': '#877b59',
-                'line-width': 1
-            }
+                'circle-radius': 8,
+                'circle-color': 'rgba(55,148,179,1)'
+            },
+            'source-layer': 'chapter2'
         });
+
+        map.addLayer({
+            'id': 'chapter3',
+            'type': 'circle',
+            'source': 'chapter3',
+            'layout': {
+                'visibility': 'visible'
+            },
+            'paint': {
+                'circle-radius': 8,
+                'circle-color': 'rgba(55,148,179,1)'
+            },
+            'source-layer': 'chapter3'
+        });
+
+        map.addLayer({
+            'id': 'chapter4',
+            'type': 'circle',
+            'source': 'chapter4',
+            'layout': {
+                'visibility': 'visible'
+            },
+            'paint': {
+                'circle-radius': 8,
+                'circle-color': 'rgba(55,148,179,1)'
+            },
+            'source-layer': 'chapter4'
+        });
+
+        map.addLayer({
+            'id': 'chapter5',
+            'type': 'circle',
+            'source': 'chapter5',
+            'layout': {
+                'visibility': 'visible'
+            },
+            'paint': {
+                'circle-radius': 8,
+                'circle-color': 'rgba(55,148,179,1)'
+            },
+            'source-layer': 'chapter5'
+        });
+
+        map.addLayer({
+            'id': 'chapter6',
+            'type': 'circle',
+            'source': 'chapter6',
+            'layout': {
+                'visibility': 'visible'
+            },
+            'paint': {
+                'circle-radius': 8,
+                'circle-color': 'rgba(55,148,179,1)'
+            },
+            'source-layer': 'chapter6'
+        });
+
+        map.addLayer({
+            'id': 'chapter7',
+            'type': 'circle',
+            'source': 'chapter7',
+            'layout': {
+                'visibility': 'visible'
+            },
+            'paint': {
+                'circle-radius': 8,
+                'circle-color': 'rgba(55,148,179,1)'
+            },
+            'source-layer': 'chapter7'
+        });
+
+        map.addLayer({
+            'id': 'chapter8',
+            'type': 'circle',
+            'source': 'chapter8',
+            'layout': {
+                'visibility': 'visible'
+            },
+            'paint': {
+                'circle-radius': 8,
+                'circle-color': 'rgba(55,148,179,1)'
+            },
+            'source-layer': 'chapter8'
+        });
+
+
+
+
     });
 
-    // After the last frame rendered before the map enters an "idle" state.
     map.on('idle', function () {
-        // If these two layers have been added to the style,
-        // add the toggle buttons.
-        if (map.getLayer('contours') && map.getLayer('graffiti')) {
+
+        if 
+            // (map.getLayer('image_list') && map.getLayer('chapter1') && map.getLayer('chapter2') && map.getLayer('chapter3') && map.getLayer('chapter4')  && map.getLayer('chapter5')  && map.getLayer('chapter6')  && map.getLayer('chapter7')  && map.getLayer('chapter8')
+            (map.getLayer('chapter1') && map.getLayer('chapter2') && map.getLayer('chapter3') && map.getLayer('chapter4')  && map.getLayer('chapter5')  && map.getLayer('chapter6')  && map.getLayer('chapter7')  && map.getLayer('chapter8')  
+            ) {
             // Enumerate ids of the layers.
-            var toggleableLayerIds = ['contours', 'graffiti'];
+            var toggleableLayerIds = ['chapter1', 'chapter2', 'chapter3', 'chapter4', 'chapter5', 'chapter6', 'chapter7', 'chapter8'];
             // Set up the corresponding toggle button for each layer.
             for (var i = 0; i < toggleableLayerIds.length; i++) {
                 var id = toggleableLayerIds[i];
@@ -186,8 +307,32 @@ body { margin: 0; padding: 0; }
                     layers.appendChild(link);
                 }
             }
-        }
+       }
     });
+
+
+map.on('click', function(e) {
+      // If the user clicked on one of your markers, get its information.
+      var features = map.queryRenderedFeatures(e.point, {
+        layers: ['chapter1', 'chapter2', 'chapter3', 'chapter4', 'chapter5', 'chapter6', 'chapter7', 'chapter8']
+      });
+      if (!features.length) {
+        return;
+      }
+      var feature = features[0];
+
+
+  var popup = new mapboxgl.Popup({ offset: [0, -15] })
+    .setLngLat(feature.geometry.coordinates)
+    .setHTML(
+      // '<h3>' + feature.properties.image + '</h3>' +
+      '<p>' + feature.properties.image + '</p>' +
+      '<img src="' + feature.properties.image +'"width="200" height="200" >'
+      )
+    .addTo(map);
+    });
+
+
 </script>
 
 </body>
