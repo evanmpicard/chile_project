@@ -326,7 +326,7 @@ map.on('click', function(e) {
     .setLngLat(feature.geometry.coordinates)
     .setHTML(
       // '<h3>' + feature.properties.image + '</h3>' +
-      '<p>' + feature.properties.image + '</p>' +
+      '<p>../../' + feature.properties.image + '</p>' +
       '<img src="../../' + feature.properties.image +'"width="200" height="200" >'
       )
     .addTo(map);
