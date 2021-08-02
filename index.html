@@ -59,6 +59,33 @@ body { margin: 0; padding: 0; }
     #menu a.active:hover {
         background: #3074a4;
     }
+
+    #grafimage{
+        height: 100%;
+        width: 100%;
+    }
+
+    #grafpopup{
+/*        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-right: -50%;
+        transform: translate(-50%, -50%);  */
+    }
+
+
+    #grafext{
+        position: absolute;
+    }
+
+    .mapboxgl-popup {
+        position: relative;
+        height: 425px;
+        width: 425px;
+
+
+    }
+
 </style>
 
 <div id="map"></div>
@@ -85,43 +112,43 @@ body { margin: 0; padding: 0; }
 
         map.addSource('chapter1', {
             type: 'vector',
-            url: 'mapbox://mapexpert.ckrgod9lx8cys28qnet1d49t7-9ckrs'
+            url: 'mapbox://mapexpert.ckrv8qf991bp820p92mta8eh2-2cdsd'
         });
 
         map.addSource('chapter2', {
             type: 'vector',
-            url: 'mapbox://mapexpert.ckrgojybv8qad20qnyfre3zh6-606bq'
+            url: 'mapbox://mapexpert.ckrv8qf991bp820p92mta8eh2-2cdsd'
         });
 
         map.addSource('chapter3', {
             type: 'vector',
-            url: 'mapbox://mapexpert.ckrgoujol31712doa6950wr47-2vzk3'
+            url: 'mapbox://mapexpert.ckrv99vqc1poo27lksil80tvj-9nswa'
         });
 
 
         map.addSource('chapter4', {
             type: 'vector',
-            url: 'mapbox://mapexpert.ckrgou9i753f822ny45eemcwl-1hatz'
+            url: 'mapbox://mapexpert.ckrv8wde51br820p9rhxmxgsk-4awxc'
         });
 
         map.addSource('chapter5', {
             type: 'vector',
-            url: 'mapbox://mapexpert.ckrgovbcg3glu27o36ecwkrc9-07pfp'
+            url: 'mapbox://mapexpert.ckrv8x8l208lk2dt89mzp48gh-15663'
         });
 
         map.addSource('chapter6', {
             type: 'vector',
-            url: 'mapbox://mapexpert.ckrgotthz0bw628qptkd9q1zb-7cyme'
+            url: 'mapbox://mapexpert.ckrv92yuo1boz27p9hcg2h7ef-62b5f'
         });
 
         map.addSource('chapter7', {
             type: 'vector',
-            url: 'mapbox://mapexpert.ckrgotm2w535b21ny32xmnqk8-771o8'
+            url: 'mapbox://mapexpert.ckrv94wg608gi29ryz82v5s8q-0a4mq'
         });
 
         map.addSource('chapter8', {
             type: 'vector',
-            url: 'mapbox://mapexpert.ckrgotdrg1p6826p76wrvwnlo-8m3ma'
+            url: 'mapbox://mapexpert.ckrv95iot03083eryaexenwrt-4bqmz'
         });
 
         // map.addLayer({
@@ -137,6 +164,7 @@ body { margin: 0; padding: 0; }
         //     },
         //     'source-layer': 'image_list'
         // });
+
 
 
         map.addLayer({
@@ -259,7 +287,6 @@ body { margin: 0; padding: 0; }
     map.on('idle', function () {
 
         if 
-            // (map.getLayer('image_list') && map.getLayer('chapter1') && map.getLayer('chapter2') && map.getLayer('chapter3') && map.getLayer('chapter4')  && map.getLayer('chapter5')  && map.getLayer('chapter6')  && map.getLayer('chapter7')  && map.getLayer('chapter8')
             (map.getLayer('chapter1') && map.getLayer('chapter2') && map.getLayer('chapter3') && map.getLayer('chapter4')  && map.getLayer('chapter5')  && map.getLayer('chapter6')  && map.getLayer('chapter7')  && map.getLayer('chapter8')  
             ) {
             // Enumerate ids of the layers.
@@ -322,13 +349,14 @@ map.on('click', function(e) {
       var feature = features[0];
 
 
-  var popup = new mapboxgl.Popup({ offset: [0, -15] })
+  var popup = new mapboxgl.Popup({ offset: [0, -25] })
     .setLngLat(feature.geometry.coordinates)
     .setHTML(
-      // '<h3>' + feature.properties.image + '</h3>' +
-      '<p>' + feature.properties.image + '</p>' +
-      '<img src="' + feature.properties.image +'"width="200" height="200" >'
-      )
+        '<div id="grafpopup">'+
+            '<div id="graftext">'+feature.properties.caption + '</div>' +
+            '<img id="grafimage" src="' + feature.properties.image +'" >'+
+        '</div>'
+          )
     .addTo(map);
     });
 

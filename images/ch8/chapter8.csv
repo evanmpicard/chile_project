@@ -1,13 +1,18 @@
-image, latitude, longitude
-images/ch8/ch8img10.jpg,-33.438564,-70.638458
-images/ch8/ch8img11.jpg,-33.438106,-70.637825
-images/ch8/ch8img12.jpg,-33.438378,-70.639336
-images/ch8/ch8img14.jpg,-33.439486,-70.639061
-images/ch8/ch8img15.jpg,-33.436981,-70.632850
-images/ch8/ch8img16.jpg,-33.455017,-70.625267
-images/ch8/ch8img2.jpg,-33.435264,-70.628783
-images/ch8/ch8img3.jpg,-33.438183,-70.633356
-images/ch8/ch8img4.jpg,-33.438147,-70.633422
-images/ch8/ch8img5.jpg,-33.436731,-70.632544
-images/ch8/ch8img7.jpg,-33.433842,-70.626189
-images/ch8/ch8img8.jpg,-33.439319,-70.638992
+image,caption,latitude,longitude
+images/ch8/ch8img1.jpg,A series of Moai-inspired masks.,0,0
+images/ch8/ch8img2.jpg,Graphic employing a Lichtenstein-like explosion.,-33.435264,-70.628783
+images/ch8/ch8img3.jpg,Elaborate mural with Zombie-like cops.,-33.438183,-70.633356
+images/ch8/ch8img4.jpg,Protestors reminiscent of Keith Haring figures.,-33.438147,-70.633422
+images/ch8/ch8img5.jpg,Stencil referencing First Lady Cecilia Morel’s comment about an alien invasion.,-33.436731,-70.632544
+images/ch8/ch8img6.jpg,Stencil riffing on the alien theme.,0,0
+images/ch8/ch8img7.jpg,Aliens take power.,-33.433842,-70.626189
+images/ch8/ch8img8.jpg,We’ve come for Human Rights.,-33.439319,-70.638992
+images/ch8/ch8img9.jpg,"It’s a Match, paste-up by Paloma Rodríguez.",0,0
+images/ch8/ch8img10.jpg,"It’s a Match 2.0, paste-up by Paloma Rodríguez.",-33.438564,-70.638458
+images/ch8/ch8img11.jpg,"#Resign Piñera, paste-up by Caiozzama.",-33.438106,-70.637825
+images/ch8/ch8img12.jpg,"Do not forgive them, for they know exactly what they are doing, paste-up by Caiozzama.",-33.438378,-70.639336
+images/ch8/ch8img13.jpg,"He likes gasoline, paste-up by Caoizzama.",0,0
+images/ch8/ch8img14.jpg,"We are Latin American Rockers, paste-up of Gabriela Mistral by Fab Ciraolo.",-33.439486,-70.639061
+images/ch8/ch8img15.jpg,Paste-up by Fab Ciraolo of Superman with the face of Felipe Camiroaga.,-33.436981,-70.63285
+images/ch8/ch8img16.jpg,Paste-up by Fab Ciraolo playing on Austin Powers’ The Spy Who Shagged Me.,-33.455017,-70.625267
+images/ch8/ch8img17.jpg,First Lady Cecilia Morel portrayed by Fab Ciraolo as Agent M from Men in Black.,0,0
