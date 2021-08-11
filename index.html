@@ -67,61 +67,20 @@ body { margin: 0; padding: 0; }
 
     #grafpopup{
         text-align: center;
-
-/*        position: absolute;
-        top: 50%;
-        left: 50%;
-        margin-right: -50%;
-        transform: translate(-50%, -50%);  */
     }
 
 
     #grafext{
-        position: absolute;
+        position: relative;
         text-align: center;
     }
 
-/*    .mapboxgl-popup {
-        position: relative;
-        height: 425px;
-        width: 425px;
-    }
-*/
     .mapboxgl-popup {
-        height: 425px;
-        width: 425px;
-        /*transform:none !important;*/
-/*        top: 15%;
-        left: 10px;*/
+        position: absolute;
+        height: 525px;
+        width: 525px;
     }
-/*    .mapboxgl-popup-anchor-top .mapboxgl-popup-tip,
-    .mapboxgl-popup-anchor-bottom .mapboxgl-popup-tip,
-    .mapboxgl-popup-anchor-center .mapboxgl-popup-tip,
-    .mapboxgl-popup-anchor-left .mapboxgl-popup-tip,
-    .mapboxgl-popup-anchor-right .mapboxgl-popup-tip,
-    .mapboxgl-popup-anchor-bottom-right .mapboxgl-popup-tip,
-    .mapboxgl-popup-anchor-bottom-left .mapboxgl-popup-tip,
-    .mapboxgl-popup-anchor-top-right .mapboxgl-popup-tip, 
-*/    
-/*    .mapboxgl-popup-anchor-top-left .mapboxgl-popup-tip{
-        display:none !important;
-    }*/
-    .mapboxgl-popup-anchor-top .mapboxgl-popup-tip,
-    .mapboxgl-popup-anchor-top-left .mapboxgl-popup-tip,
-    .mapboxgl-popup-anchor-top-right .mapboxgl-popup-tip {
-        border-bottom-color: blue;
-    }
-    .mapboxgl-popup-anchor-bottom .mapboxgl-popup-tip,
-    .mapboxgl-popup-anchor-bottom-left .mapboxgl-popup-tip,
-    .mapboxgl-popup-anchor-bottom-right .mapboxgl-popup-tip {
-        border-top-color: blue;
-    }
-    .mapboxgl-popup-anchor-left .mapboxgl-popup-tip {
-        border-right-color: blue;
-    }
-    .mapboxgl-popup-anchor-right .mapboxgl-popup-tip {
-        border-left-color: blue;
-    }
+
 
 </style>
 
@@ -142,182 +101,217 @@ body { margin: 0; padding: 0; }
 
     map.on('load', function () {
 
-        // map.addSource('image_list', {
-        //     type: 'vector',
-        //     url: 'mapbox://mapexpert.ckppy7gqr06qg29nxyiv1wlf1-4cyn6'
-        // });
+        map.loadImage('./icons/ch1.png',
+            (error, image) => {
+            if (error) throw error;
+             
+            // Add the image to the map style.
+            map.addImage('ch1icon', image);
 
-        map.addSource('chapter1', {
-            type: 'vector',
-            url: 'mapbox://mapexpert.ckrv8qf991bp820p92mta8eh2-2cdsd'
+            map.addSource('chapter1', {
+                type: 'vector',
+                url: 'mapbox://mapexpert.ckrv8qf991bp820p92mta8eh2-2cdsd'
+            });
+            
+            map.addLayer({
+                'id': 'chapter1',
+                'type': 'symbol',
+                'source': 'chapter1',
+                'source-layer': 'chapter1',
+                'layout': {
+                    'visibility': 'visible',
+                    'icon-image': 'ch1icon',
+                    'icon-size': 0.16,
+                    'icon-allow-overlap': true
+                },
+                'paint': {'icon-color':'#ffffff'}
+            });
         });
 
-        map.addSource('chapter2', {
-            type: 'vector',
-            url: 'mapbox://mapexpert.ckrv8pnzq06ar23rzg7kbessr-7cuh2'
+        map.loadImage('./icons/ch2.png',
+            (error, image) => {
+            if (error) throw error;
+             
+            // Add the image to the map style.
+            map.addImage('ch2icon', image);
+
+            map.addSource('chapter2', {
+                type: 'vector',
+                url: 'mapbox://mapexpert.ckrv8pnzq06ar23rzg7kbessr-7cuh2'
+            });
+
+            map.addLayer({
+                'id': 'chapter2',
+                'type': 'symbol',
+                'source': 'chapter2',
+                'source-layer': 'chapter2',
+                'layout': {
+                    'visibility': 'visible',
+                    'icon-image': 'ch2icon',
+                    'icon-size': 0.16,
+                    'icon-allow-overlap': true
+                }
+            });
         });
 
-        map.addSource('chapter3', {
-            type: 'vector',
-            url: 'mapbox://mapexpert.ckrv99vqc1poo27lksil80tvj-9nswa'
-        });
+        map.loadImage('./icons/ch3.png',
+            (error, image) => {
+            if (error) throw error;
+             
+            // Add the image to the map style.
+            map.addImage('ch3icon', image);
 
 
-        map.addSource('chapter4', {
-            type: 'vector',
-            url: 'mapbox://mapexpert.ckrv8wde51br820p9rhxmxgsk-4awxc'
-        });
+            map.addSource('chapter3', {
+                type: 'vector',
+                url: 'mapbox://mapexpert.ckrv99vqc1poo27lksil80tvj-9nswa'
+            });
 
-        map.addSource('chapter5', {
-            type: 'vector',
-            url: 'mapbox://mapexpert.ckrv8x8l208lk2dt89mzp48gh-15663'
-        });
-
-        map.addSource('chapter6', {
-            type: 'vector',
-            url: 'mapbox://mapexpert.ckrv92yuo1boz27p9hcg2h7ef-62b5f'
-        });
-
-        map.addSource('chapter7', {
-            type: 'vector',
-            url: 'mapbox://mapexpert.ckrv94wg608gi29ryz82v5s8q-0a4mq'
-        });
-
-        map.addSource('chapter8', {
-            type: 'vector',
-            url: 'mapbox://mapexpert.ckrv95iot03083eryaexenwrt-4bqmz'
-        });
-
-        // map.addLayer({
-        //     'id': 'image_list',
-        //     'type': 'circle',
-        //     'source': 'image_list',
-        //     'layout': {
-        //         'visibility': 'visible'
-        //     },
-        //     'paint': {
-        //         'circle-radius': 8,
-        //         'circle-color': 'rgba(55,148,179,1)'
-        //     },
-        //     'source-layer': 'image_list'
-        // });
-
-
-
-        map.addLayer({
-            'id': 'chapter1',
-            'type': 'circle',
-            'source': 'chapter1',
-            'layout': {
-                'visibility': 'visible'
-            },
-            'paint': {
-                'circle-radius': 8,
-                'circle-color': 'rgba(55,148,179,1)'
-            },
-            'source-layer': 'chapter1'
-        });
-
-        map.addLayer({
-            'id': 'chapter2',
-            'type': 'circle',
-            'source': 'chapter2',
-            'layout': {
-                'visibility': 'visible'
-            },
-            'paint': {
-                'circle-radius': 8,
-                'circle-color': 'rgba(55,148,179,1)'
-            },
-            'source-layer': 'chapter2'
-        });
-
-        map.addLayer({
-            'id': 'chapter3',
-            'type': 'circle',
-            'source': 'chapter3',
-            'layout': {
-                'visibility': 'visible'
-            },
-            'paint': {
-                'circle-radius': 8,
-                'circle-color': 'rgba(55,148,179,1)'
-            },
-            'source-layer': 'chapter3'
-        });
-
-        map.addLayer({
-            'id': 'chapter4',
-            'type': 'circle',
-            'source': 'chapter4',
-            'layout': {
-                'visibility': 'visible'
-            },
-            'paint': {
-                'circle-radius': 8,
-                'circle-color': 'rgba(55,148,179,1)'
-            },
-            'source-layer': 'chapter4'
-        });
-
-        map.addLayer({
-            'id': 'chapter5',
-            'type': 'circle',
-            'source': 'chapter5',
-            'layout': {
-                'visibility': 'visible'
-            },
-            'paint': {
-                'circle-radius': 8,
-                'circle-color': 'rgba(55,148,179,1)'
-            },
-            'source-layer': 'chapter5'
-        });
-
-        map.addLayer({
-            'id': 'chapter6',
-            'type': 'circle',
-            'source': 'chapter6',
-            'layout': {
-                'visibility': 'visible'
-            },
-            'paint': {
-                'circle-radius': 8,
-                'circle-color': 'rgba(55,148,179,1)'
-            },
-            'source-layer': 'chapter6'
-        });
-
-        map.addLayer({
-            'id': 'chapter7',
-            'type': 'circle',
-            'source': 'chapter7',
-            'layout': {
-                'visibility': 'visible'
-            },
-            'paint': {
-                'circle-radius': 8,
-                'circle-color': 'rgba(55,148,179,1)'
-            },
-            'source-layer': 'chapter7'
-        });
-
-        map.addLayer({
-            'id': 'chapter8',
-            'type': 'circle',
-            'source': 'chapter8',
-            'layout': {
-                'visibility': 'visible'
-            },
-            'paint': {
-                'circle-radius': 8,
-                'circle-color': 'rgba(55,148,179,1)'
-            },
-            'source-layer': 'chapter8'
+            map.addLayer({
+                'id': 'chapter3',
+                'type': 'symbol',
+                'source': 'chapter3',
+                'source-layer': 'chapter3',
+                 'layout': {
+                    'visibility': 'visible',
+                    'icon-image': 'ch3icon',
+                    'icon-size': 0.16,
+                    'icon-allow-overlap': true
+                    }
+            });
         });
 
 
+        map.loadImage('./icons/ch4.png',
+            (error, image) => {
+            if (error) throw error;
+             
+            // Add the image to the map style.
+            map.addImage('ch4icon', image);
 
+            map.addSource('chapter4', {
+                type: 'vector',
+                url: 'mapbox://mapexpert.ckrv8wde51br820p9rhxmxgsk-4awxc'
+            });
+            map.addLayer({
+                'id': 'chapter4',
+                'type': 'symbol',
+                'source': 'chapter4',
+                'source-layer': 'chapter4',
+                 'layout': {
+                    'visibility': 'visible',
+                    'icon-image': 'ch4icon',
+                    'icon-size': 0.16,
+                    'icon-allow-overlap': true
+                    }
+            });
+        });
+
+        map.loadImage('./icons/ch5.png',
+            (error, image) => {
+            if (error) throw error;
+             
+            // Add the image to the map style.
+            map.addImage('ch5icon', image);
+
+
+            map.addSource('chapter5', {
+                type: 'vector',
+                url: 'mapbox://mapexpert.ckrv8x8l208lk2dt89mzp48gh-15663'
+            });
+            map.addLayer({
+                'id': 'chapter5',
+                'type': 'symbol',
+                'source': 'chapter5',
+                'source-layer': 'chapter5',
+                 'layout': {
+                    'visibility': 'visible',
+                    'icon-image': 'ch5icon',
+                    'icon-size': 0.16,
+                    'icon-allow-overlap': true
+                    }
+            });
+        });
+
+        map.loadImage('./icons/ch6.png',
+            (error, image) => {
+            if (error) throw error;
+             
+            // Add the image to the map style.
+            map.addImage('ch6icon', image);
+
+
+            map.addSource('chapter6', {
+                type: 'vector',
+                url: 'mapbox://mapexpert.ckrv92yuo1boz27p9hcg2h7ef-62b5f'
+            });
+            map.addLayer({
+                'id': 'chapter6',
+                'type': 'symbol',
+                'source': 'chapter6',
+                'source-layer': 'chapter6',
+                 'layout': {
+                    'visibility': 'visible',
+                    'icon-image': 'ch6icon',
+                    'icon-size': 0.16,
+                    'icon-allow-overlap': true
+                    }
+            });
+        });
+
+        map.loadImage('./icons/ch7.png',
+            (error, image) => {
+            if (error) throw error;
+             
+            // Add the image to the map style.
+            map.addImage('ch7icon', image);
+
+
+            map.addSource('chapter7', {
+                type: 'vector',
+                url: 'mapbox://mapexpert.ckrv94wg608gi29ryz82v5s8q-0a4mq'
+            });
+
+            map.addLayer({
+                'id': 'chapter7',
+                'type': 'symbol',
+                'source': 'chapter7',
+                'source-layer': 'chapter7',
+                 'layout': {
+                    'visibility': 'visible',
+                    'icon-image': 'ch7icon',
+                    'icon-size': 0.16,
+                    'icon-allow-overlap': true
+                    },
+            });
+        });
+
+        map.loadImage('./icons/ch8.png',
+            (error, image) => {
+            if (error) throw error;
+             
+            // Add the image to the map style.
+            map.addImage('ch8icon', image);
+
+
+            map.addSource('chapter8', {
+                type: 'vector',
+                url: 'mapbox://mapexpert.ckrv95iot03083eryaexenwrt-4bqmz'
+            });
+
+            map.addLayer({
+                'id': 'chapter8',
+                'type': 'symbol',
+                'source': 'chapter8',
+                'source-layer': 'chapter8',
+                 'layout': {
+                    'visibility': 'visible',
+                    'icon-image': 'ch8icon',
+                    'icon-size': 0.16,
+                    'icon-allow-overlap': true
+                    }
+            });
+        });
 
     });
 
@@ -341,8 +335,40 @@ body { margin: 0; padding: 0; }
                     // Show or hide layer when the toggle is clicked.
                     link.onclick = function (e) {
                         var clickedLayer = this.textContent;
-                        var delindex = toggleableLayerIds.indexOf(clickedLayer);
-                        var cliplist = toggleableLayerIds;
+                        // const delindex = toggleableLayerIds.indexOf(clickedLayer);
+                        // const cliplist = toggleableLayerIds;
+                        // cliplist.splice(delindex,1);
+                        // console.log(cliplist);
+                        // console.log(clickedLayer);
+                        e.preventDefault();
+                        e.stopPropagation();
+
+                        var visibility = map.getLayoutProperty(
+                            clickedLayer,
+                            'visibility'
+                        );
+
+                        // Toggle layer visibility by changing the layout object's visibility property.
+                        if (visibility === 'visible') {
+                            map.setLayoutProperty(
+                                clickedLayer,
+                                'visibility',
+                                'none'
+                            );
+                            this.className = '';
+                        } else {
+                            this.className = 'active';
+                            map.setLayoutProperty(
+                                clickedLayer,
+                                'visibility',
+                                'visible'
+                            );
+                        }
+                    };
+                    link.onhover = function (e) {
+                        var clickedLayer = this.textContent;
+                        const delindex = toggleableLayerIds.indexOf(clickedLayer);
+                        const cliplist = toggleableLayerIds;
                         cliplist.splice(delindex,1);
                         console.log(cliplist);
                         console.log(clickedLayer);
@@ -390,10 +416,8 @@ map.on('click', function(e) {
       }
       var feature = features[0];
 
-
-  var popup = new mapboxgl.Popup({ offset: [0, -25], closeOnMove:true } )
+  var popup = new mapboxgl.Popup({ closeOnMove:true } )
     .setLngLat(feature.geometry.coordinates)
-
     .setHTML(
         '<div id="grafpopup">'+
             '<img id="grafimage" src="' + feature.properties.image +'" >'+
