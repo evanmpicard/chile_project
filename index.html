@@ -110,7 +110,7 @@ body { margin: 0; padding: 0; }
 
             map.addSource('chapter1', {
                 type: 'vector',
-                url: 'mapbox://mapexpert.ckshkj3wl2a5z21ny49d9p3cd-6q8kd'
+                url: 'mapbox://mapexpert.ckshkqp2h0aic21mwt05ii7lj-1twsw'
             });
             
             map.addLayer({
@@ -420,6 +420,7 @@ map.on('click', function(e) {
     .setLngLat(feature.geometry.coordinates)
     .setHTML(
         '<div id="grafpopup">'+
+            feature.properties.image +
             '<img id="grafimage" src="' + feature.properties.image +'" >'+
             '<div id="graftext">'+feature.properties.caption + '</div>' +
         '</div>'
