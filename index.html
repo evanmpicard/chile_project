@@ -420,7 +420,7 @@ map.on('click', function(e) {
     .setLngLat(feature.geometry.coordinates)
     .setHTML(
         '<div id="grafpopup">'+
-            feature.properties.image +
+            '<div>'+ feature.properties.image + '</div>' +
             '<img id="grafimage" src="' + feature.properties.image +'" >'+
             '<div id="graftext">'+feature.properties.caption + '</div>' +
         '</div>'
