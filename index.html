@@ -110,7 +110,7 @@ body { margin: 0; padding: 0; }
 
             map.addSource('chapter1', {
                 type: 'vector',
-                url: 'mapbox://mapexpert.ckshl86pw0b5n28mwv9d4eav8-3foh3'
+                url: 'mapbox://mapexpert.cksifl1j80ida20o3qbhn6jlv-9j7wr'
             });
             
             map.addLayer({
@@ -137,7 +137,7 @@ body { margin: 0; padding: 0; }
 
             map.addSource('chapter2', {
                 type: 'vector',
-                url: 'mapbox://mapexpert.ckshjr8117t8z2eparvawn31u-3dtrs'
+                url: 'mapbox://mapexpert.cksiflagm2hc820ny8dxz7ovs-7ympy'
             });
 
             map.addLayer({
@@ -164,7 +164,7 @@ body { margin: 0; padding: 0; }
 
             map.addSource('chapter3', {
                 type: 'vector',
-                url: 'mapbox://mapexpert.ckshjuns31va221pgb7xutnmu-20rrf'
+                url: 'mapbox://mapexpert.cksiflza207gz21pckfgjaes2-9jo14'
             });
 
             map.addLayer({
@@ -191,7 +191,7 @@ body { margin: 0; padding: 0; }
 
             map.addSource('chapter4', {
                 type: 'vector',
-                url: 'mapbox://mapexpert.ckshjwv961y1f2fpggxcilcyn-5ossy'
+                url: 'mapbox://mapexpert.cksifm6qj0h0c21o3v8if30ri-279zb'
             });
             map.addLayer({
                 'id': 'chapter4',
@@ -217,7 +217,7 @@ body { margin: 0; padding: 0; }
 
             map.addSource('chapter5', {
                 type: 'vector',
-                url: 'mapbox://mapexpert.ckshjy8ro225428qp3canuyv0-15mep'
+                url: 'mapbox://mapexpert.cksifmjh0283l2fpgkylpojgm-8vns3'
             });
             map.addLayer({
                 'id': 'chapter5',
@@ -243,7 +243,7 @@ body { margin: 0; padding: 0; }
 
             map.addSource('chapter6', {
                 type: 'vector',
-                url: 'mapbox://mapexpert.ckshjzky90gzn28n2evkrvurq-27amg'
+                url: 'mapbox://mapexpert.cksifmwlm0jv221mwwdj8rmcb-4u2c8'
             });
             map.addLayer({
                 'id': 'chapter6',
@@ -269,7 +269,7 @@ body { margin: 0; padding: 0; }
 
             map.addSource('chapter7', {
                 type: 'vector',
-                url: 'mapbox://mapexpert.ckshk0kn10b6r28o3ltmdmtco-80xhf'
+                url: 'mapbox://mapexpert.cksifn42b22ky20pg60gufe49-8g4ws'
             });
 
             map.addLayer({
@@ -296,7 +296,7 @@ body { margin: 0; padding: 0; }
 
             map.addSource('chapter8', {
                 type: 'vector',
-                url: 'mapbox://mapexpert.ckshk1weh0g8q28mmo3teoscb-7cdfz'
+                url: 'mapbox://mapexpert.cksifnepp6qp227sdngrgxwjg-0t1vx'
             });
 
             map.addLayer({
@@ -332,7 +332,7 @@ body { margin: 0; padding: 0; }
                     link.href = '#';
                     link.textContent = id;
                     link.className = 'active';
-                    // Show or hide layer when the toggle is clicked.
+                    // Show or hide layer when the toggle is    ed.
                     link.onclick = function (e) {
                         var clickedLayer = this.textContent;
                         // const delindex = toggleableLayerIds.indexOf(clickedLayer);
@@ -340,38 +340,6 @@ body { margin: 0; padding: 0; }
                         // cliplist.splice(delindex,1);
                         // console.log(cliplist);
                         // console.log(clickedLayer);
-                        e.preventDefault();
-                        e.stopPropagation();
-
-                        var visibility = map.getLayoutProperty(
-                            clickedLayer,
-                            'visibility'
-                        );
-
-                        // Toggle layer visibility by changing the layout object's visibility property.
-                        if (visibility === 'visible') {
-                            map.setLayoutProperty(
-                                clickedLayer,
-                                'visibility',
-                                'none'
-                            );
-                            this.className = '';
-                        } else {
-                            this.className = 'active';
-                            map.setLayoutProperty(
-                                clickedLayer,
-                                'visibility',
-                                'visible'
-                            );
-                        }
-                    };
-                    link.onhover = function (e) {
-                        var clickedLayer = this.textContent;
-                        const delindex = toggleableLayerIds.indexOf(clickedLayer);
-                        const cliplist = toggleableLayerIds;
-                        cliplist.splice(delindex,1);
-                        console.log(cliplist);
-                        console.log(clickedLayer);
                         e.preventDefault();
                         e.stopPropagation();
 
@@ -405,8 +373,8 @@ body { margin: 0; padding: 0; }
        }
     });
 
-
 map.on('click', function(e) {
+
       // If the user clicked on one of your markers, get its information.
       var features = map.queryRenderedFeatures(e.point, {
         layers: ['chapter1', 'chapter2', 'chapter3', 'chapter4', 'chapter5', 'chapter6', 'chapter7', 'chapter8']
@@ -416,12 +384,13 @@ map.on('click', function(e) {
       }
       var feature = features[0];
 
+
   var popup = new mapboxgl.Popup({ closeOnMove:true } )
     .setLngLat(feature.geometry.coordinates)
     .setHTML(
         '<div id="grafpopup">'+
-            '<div>'+ feature.properties.image + '</div>' +
-            '<img id="grafimage" src="' + feature.properties.image +'" >'+
+            // '<div>'+ feature.properties.path + '</div>' +
+            '<img id="grafimage" src="' + feature.properties.path +'" >'+
             '<div id="graftext">'+feature.properties.caption + '</div>' +
         '</div>'
           )
