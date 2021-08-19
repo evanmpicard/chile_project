@@ -243,7 +243,7 @@ body { margin: 0; padding: 0; }
 
             map.addSource('chapter6', {
                 type: 'vector',
-                url: 'mapbox://mapexpert.cksifmwlm0jv221mwwdj8rmcb-4u2c8'
+                url: 'mapbox://mapexpert.cksignkh00o5c20mwa66wetd2-83ee4'
             });
             map.addLayer({
                 'id': 'chapter6',
@@ -384,7 +384,7 @@ map.on('click', function(e) {
       }
       var feature = features[0];
 
-
+      console.log(feature.properties.path)
   var popup = new mapboxgl.Popup({ closeOnMove:true } )
     .setLngLat(feature.geometry.coordinates)
     .setHTML(
