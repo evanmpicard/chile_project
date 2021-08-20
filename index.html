@@ -119,7 +119,7 @@ body { margin: 0; padding: 0; }
                 'source': 'chapter1',
                 'source-layer': 'chapter1',
                 'layout': {
-                    'visibility': 'visible',
+                    'visibility': 'none',
                     'icon-image': 'ch1icon',
                     'icon-size': 0.16,
                     'icon-allow-overlap': true
@@ -146,7 +146,7 @@ body { margin: 0; padding: 0; }
                 'source': 'chapter2',
                 'source-layer': 'chapter2',
                 'layout': {
-                    'visibility': 'visible',
+                    'visibility': 'none',
                     'icon-image': 'ch2icon',
                     'icon-size': 0.16,
                     'icon-allow-overlap': true
@@ -173,7 +173,7 @@ body { margin: 0; padding: 0; }
                 'source': 'chapter3',
                 'source-layer': 'chapter3',
                  'layout': {
-                    'visibility': 'visible',
+                    'visibility': 'none',
                     'icon-image': 'ch3icon',
                     'icon-size': 0.16,
                     'icon-allow-overlap': true
@@ -199,7 +199,7 @@ body { margin: 0; padding: 0; }
                 'source': 'chapter4',
                 'source-layer': 'chapter4',
                  'layout': {
-                    'visibility': 'visible',
+                    'visibility': 'none',
                     'icon-image': 'ch4icon',
                     'icon-size': 0.16,
                     'icon-allow-overlap': true
@@ -225,7 +225,7 @@ body { margin: 0; padding: 0; }
                 'source': 'chapter5',
                 'source-layer': 'chapter5',
                  'layout': {
-                    'visibility': 'visible',
+                    'visibility': 'none',
                     'icon-image': 'ch5icon',
                     'icon-size': 0.16,
                     'icon-allow-overlap': true
@@ -251,7 +251,7 @@ body { margin: 0; padding: 0; }
                 'source': 'chapter6',
                 'source-layer': 'chapter6',
                  'layout': {
-                    'visibility': 'visible',
+                    'visibility': 'none',
                     'icon-image': 'ch6icon',
                     'icon-size': 0.16,
                     'icon-allow-overlap': true
@@ -278,7 +278,7 @@ body { margin: 0; padding: 0; }
                 'source': 'chapter7',
                 'source-layer': 'chapter7',
                  'layout': {
-                    'visibility': 'visible',
+                    'visibility': 'none',
                     'icon-image': 'ch7icon',
                     'icon-size': 0.16,
                     'icon-allow-overlap': true
@@ -305,7 +305,7 @@ body { margin: 0; padding: 0; }
                 'source': 'chapter8',
                 'source-layer': 'chapter8',
                  'layout': {
-                    'visibility': 'visible',
+                    'visibility': 'none',
                     'icon-image': 'ch8icon',
                     'icon-size': 0.16,
                     'icon-allow-overlap': true
@@ -330,16 +330,12 @@ body { margin: 0; padding: 0; }
                     var link = document.createElement('a');
                     link.id = id;
                     link.href = '#';
+                    var buttontext = id.replace("chapter", "chapter ");
                     link.textContent = id;
-                    link.className = 'active';
+                    link.className = 'inactive';
                     // Show or hide layer when the toggle is    ed.
                     link.onclick = function (e) {
                         var clickedLayer = this.textContent;
-                        // const delindex = toggleableLayerIds.indexOf(clickedLayer);
-                        // const cliplist = toggleableLayerIds;
-                        // cliplist.splice(delindex,1);
-                        // console.log(cliplist);
-                        // console.log(clickedLayer);
                         e.preventDefault();
                         e.stopPropagation();
 
