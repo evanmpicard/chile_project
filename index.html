@@ -97,13 +97,15 @@ body { margin: 0; padding: 0; }
     var map = new mapboxgl.Map({
         container: 'map',
         style: 'mapbox://styles/chilegraffiti/cksnxsi7w45l717mp2opcxz7g',
-
+        customAttribution: 'Locations are approximations based on GPS coordinates',
         zoom: 15,
         center: [-70.64, -33.44]
+
     });
 
-    map.on('load', function () {
 
+    map.on('load', function () {
+``
         map.loadImage('./icons/ch1.png',
             (error, image) => {
             if (error) throw error;
@@ -395,6 +397,7 @@ map.on('click', function(e) {
           )
     .addTo(map);
     });
+
 
 
 </script>
