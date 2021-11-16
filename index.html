@@ -105,7 +105,34 @@ body { margin: 0; padding: 0; }
 
 
     map.on('load', function () {
-``
+
+        map.loadImage('./icons/intro.png',
+            (error, image) => {
+            if (error) throw error;
+             
+            // Add the image to the map style.
+            map.addImage('introicon', image);
+
+            map.addSource('intro', {
+                type: 'vector',
+                url: 'mapbox://chilegraffiti.ckw2ih21x1ydd20lgjoiwzr3c-5murv'
+            });
+            
+            map.addLayer({
+                'id': 'intro',
+                'type': 'symbol',
+                'source': 'intro',
+                'source-layer': 'intro',
+                'layout': {
+                    'visibility': 'none',
+                    'icon-image': 'introicon',
+                    'icon-size': 0.16,
+                    'icon-allow-overlap': true
+                },
+                'paint': {'icon-color':'#ffffff'}
+            });
+        });
+
         map.loadImage('./icons/ch1.png',
             (error, image) => {
             if (error) throw error;
@@ -323,10 +350,10 @@ body { margin: 0; padding: 0; }
     map.on('idle', function () {
 
         if 
-            (map.getLayer('chapter1') && map.getLayer('chapter2') && map.getLayer('chapter3') && map.getLayer('chapter4')  && map.getLayer('chapter5')  && map.getLayer('chapter6')  && map.getLayer('chapter7')  && map.getLayer('chapter8')  
+            (map.getLayer('intro') && map.getLayer('chapter1') && map.getLayer('chapter2') && map.getLayer('chapter3') && map.getLayer('chapter4')  && map.getLayer('chapter5')  && map.getLayer('chapter6')  && map.getLayer('chapter7')  && map.getLayer('chapter8')  
             ) {
             // Enumerate ids of the layers.
-            var toggleableLayerIds = ['chapter1', 'chapter2', 'chapter3', 'chapter4', 'chapter5', 'chapter6', 'chapter7', 'chapter8'];
+            var toggleableLayerIds = ['intro', 'chapter1', 'chapter2', 'chapter3', 'chapter4', 'chapter5', 'chapter6', 'chapter7', 'chapter8'];
             // Set up the corresponding toggle button for each layer.
             for (var i = 0; i < toggleableLayerIds.length; i++) {
                 var id = toggleableLayerIds[i];
@@ -335,7 +362,7 @@ body { margin: 0; padding: 0; }
                     var link = document.createElement('a');
                     link.id = id;
                     link.href = '#';
-                    var buttontext = id.replace("chapter", "chapter ");
+                    var buttontext = id.replace("chapter", "Chapter ");
                     link.textContent = id;
                     link.className = 'inactive';
                     // Show or hide layer when the toggle is    ed.
@@ -378,7 +405,7 @@ map.on('click', function(e) {
 
       // If the user clicked on one of your markers, get its information.
       var features = map.queryRenderedFeatures(e.point, {
-        layers: ['chapter1', 'chapter2', 'chapter3', 'chapter4', 'chapter5', 'chapter6', 'chapter7', 'chapter8']
+        layers: ['intro', 'chapter1', 'chapter2', 'chapter3', 'chapter4', 'chapter5', 'chapter6', 'chapter7', 'chapter8']
       });
       if (!features.length) {
         return;
